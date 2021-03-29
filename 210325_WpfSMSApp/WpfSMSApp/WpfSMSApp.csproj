@@ -179,12 +179,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Logic\DataAccess.cs" />
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -194,6 +196,7 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Page Include="View\LoginView.xaml">
       <SubType>Designer</SubType>
@@ -288,9 +291,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Business\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
@@ -306,157 +307,459 @@
       <LastGenOutput>SMSModel.cs</LastGenOutput>
     </Content>
     <Resource Include="stock.png" />
-    <EmbeddedResource Include="Resources\stock.png" />
-    <EmbeddedResource Include="Resources\star.png" />
-    <EmbeddedResource Include="Resources\sound_file.png" />
-    <EmbeddedResource Include="Resources\sign_info.png" />
-    <EmbeddedResource Include="Resources\sign_check.png" />
-    <EmbeddedResource Include="Resources\sign_add.png" />
-    <EmbeddedResource Include="Resources\shield.png" />
-    <EmbeddedResource Include="Resources\search%27.png" />
-    <EmbeddedResource Include="Resources\screwdriver_wrench.png" />
-    <EmbeddedResource Include="Resources\schedule.png" />
-    <EmbeddedResource Include="Resources\rss.png" />
-    <EmbeddedResource Include="Resources\red_movie.png" />
-    <EmbeddedResource Include="Resources\profile3.png" />
-    <EmbeddedResource Include="Resources\profile.png" />
-    <EmbeddedResource Include="Resources\premiere.png" />
-    <EmbeddedResource Include="Resources\powerpoint.png" />
-    <EmbeddedResource Include="Resources\pin.png" />
-    <EmbeddedResource Include="Resources\pic_folder.png" />
-    <EmbeddedResource Include="Resources\photoshop.png" />
-    <EmbeddedResource Include="Resources\pencil.png" />
-    <EmbeddedResource Include="Resources\pdf.png" />
-    <EmbeddedResource Include="Resources\paperclip2.png" />
-    <EmbeddedResource Include="Resources\paperclip.png" />
-    <EmbeddedResource Include="Resources\notes.png" />
-    <EmbeddedResource Include="Resources\notepad.png" />
-    <EmbeddedResource Include="Resources\music_folder.png" />
-    <EmbeddedResource Include="Resources\monitor.png" />
-    <EmbeddedResource Include="Resources\money.png" />
-    <EmbeddedResource Include="Resources\microphone.png" />
-    <EmbeddedResource Include="Resources\marker.png" />
-    <EmbeddedResource Include="Resources\map2.png" />
-    <EmbeddedResource Include="Resources\map_marker.png" />
-    <EmbeddedResource Include="Resources\map.png" />
-    <EmbeddedResource Include="Resources\lp.png" />
-    <EmbeddedResource Include="Resources\lock2.png" />
-    <EmbeddedResource Include="Resources\lock.png" />
-    <EmbeddedResource Include="Resources\link_file.png" />
-    <EmbeddedResource Include="Resources\like.png" />
-    <EmbeddedResource Include="Resources\life_buoy.png" />
-    <EmbeddedResource Include="Resources\layout_window.png" />
-    <EmbeddedResource Include="Resources\land_marker.png" />
-    <EmbeddedResource Include="Resources\institution.png" />
-    <EmbeddedResource Include="Resources\indesign.png" />
-    <EmbeddedResource Include="Resources\image_pci.png" />
-    <EmbeddedResource Include="Resources\image_file.png" />
-    <EmbeddedResource Include="Resources\image.png" />
-    <EmbeddedResource Include="Resources\house_folder.png" />
-    <EmbeddedResource Include="Resources\house.png" />
-    <EmbeddedResource Include="Resources\heart.png" />
-    <EmbeddedResource Include="Resources\headphone.png" />
-    <EmbeddedResource Include="Resources\group_profile.png" />
-    <EmbeddedResource Include="Resources\green_movie.png" />
-    <EmbeddedResource Include="Resources\green_folder.png" />
-    <EmbeddedResource Include="Resources\google+.png" />
-    <EmbeddedResource Include="Resources\gift.png" />
-    <EmbeddedResource Include="Resources\gamepad.png" />
-    <EmbeddedResource Include="Resources\folder.png" />
-    <EmbeddedResource Include="Resources\floppy_save.png" />
-    <EmbeddedResource Include="Resources\flask.png" />
-    <EmbeddedResource Include="Resources\filter.png" />
-    <EmbeddedResource Include="Resources\film_movie.png" />
-    <EmbeddedResource Include="Resources\filezip.png" />
-    <EmbeddedResource Include="Resources\facebook.png" />
-    <EmbeddedResource Include="Resources\exe_file.png" />
-    <EmbeddedResource Include="Resources\excel2.png" />
-    <EmbeddedResource Include="Resources\excel.png" />
-    <EmbeddedResource Include="Resources\error_sign.png" />
-    <EmbeddedResource Include="Resources\error_shield.png" />
-    <EmbeddedResource Include="Resources\enveloppe4.png" />
-    <EmbeddedResource Include="Resources\enveloppe3.png" />
-    <EmbeddedResource Include="Resources\enveloppe2.png" />
-    <EmbeddedResource Include="Resources\enveloppe.png" />
-    <EmbeddedResource Include="Resources\empty.png" />
-    <EmbeddedResource Include="Resources\earch.png" />
-    <EmbeddedResource Include="Resources\drive2.png" />
-    <EmbeddedResource Include="Resources\drive.png" />
-    <EmbeddedResource Include="Resources\doc_folder.png" />
-    <EmbeddedResource Include="Resources\disc3.png" />
-    <EmbeddedResource Include="Resources\disc.png" />
-    <EmbeddedResource Include="Resources\delete.png" />
-    <EmbeddedResource Include="Resources\database2.png" />
-    <EmbeddedResource Include="Resources\database.png" />
-    <EmbeddedResource Include="Resources\cone.png" />
-    <EmbeddedResource Include="Resources\computer.png" />
-    <EmbeddedResource Include="Resources\component.png" />
-    <EmbeddedResource Include="Resources\compas.png" />
-    <EmbeddedResource Include="Resources\cogs.png" />
-    <EmbeddedResource Include="Resources\cog.png" />
-    <EmbeddedResource Include="Resources\code_file.png" />
-    <EmbeddedResource Include="Resources\cloud_sync.png" />
-    <EmbeddedResource Include="Resources\cloud_down.png" />
-    <EmbeddedResource Include="Resources\cloud.png" />
-    <EmbeddedResource Include="Resources\clock2.png" />
-    <EmbeddedResource Include="Resources\clock.png" />
-    <EmbeddedResource Include="Resources\chat3.png" />
-    <EmbeddedResource Include="Resources\chat2.png" />
-    <EmbeddedResource Include="Resources\chat.png" />
-    <EmbeddedResource Include="Resources\cat2.png" />
-    <EmbeddedResource Include="Resources\cat.png" />
-    <EmbeddedResource Include="Resources\camera2.png" />
-    <EmbeddedResource Include="Resources\camera0.png" />
-    <EmbeddedResource Include="Resources\camera.png" />
-    <EmbeddedResource Include="Resources\calendar3.png" />
-    <EmbeddedResource Include="Resources\calendar2.png" />
-    <EmbeddedResource Include="Resources\calendar.png" />
-    <EmbeddedResource Include="Resources\bulb_light.png" />
-    <EmbeddedResource Include="Resources\bubbles.png" />
-    <EmbeddedResource Include="Resources\bubble.png" />
-    <EmbeddedResource Include="Resources\box_out.png" />
-    <EmbeddedResource Include="Resources\box_in.png" />
-    <EmbeddedResource Include="Resources\box_full.png" />
-    <EmbeddedResource Include="Resources\bookmark_file.png" />
-    <EmbeddedResource Include="Resources\book.png" />
-    <EmbeddedResource Include="Resources\blue_folder.png" />
-    <EmbeddedResource Include="Resources\bizcard.png" />
-    <EmbeddedResource Include="Resources\beer.png" />
-    <EmbeddedResource Include="Resources\bansign.png" />
-    <EmbeddedResource Include="Resources\bag.png" />
-    <EmbeddedResource Include="Resources\back_arrow.png" />
-    <EmbeddedResource Include="Resources\ai.png" />
-    <EmbeddedResource Include="Resources\address_book3.png" />
-    <EmbeddedResource Include="Resources\address_book2.png" />
-    <EmbeddedResource Include="Resources\address_book.png" />
-    <EmbeddedResource Include="Resources\zip_file2.png" />
-    <EmbeddedResource Include="Resources\zip_file.png" />
-    <EmbeddedResource Include="Resources\youtube.png" />
-    <EmbeddedResource Include="Resources\wrench2.png" />
-    <EmbeddedResource Include="Resources\wrench.png" />
-    <EmbeddedResource Include="Resources\word_file.png" />
-    <EmbeddedResource Include="Resources\word.png" />
-    <EmbeddedResource Include="Resources\window2.png" />
-    <EmbeddedResource Include="Resources\window.png" />
-    <EmbeddedResource Include="Resources\webcam.png" />
-    <EmbeddedResource Include="Resources\warning_shield.png" />
-    <EmbeddedResource Include="Resources\video_folder.png" />
-    <EmbeddedResource Include="Resources\user2.png" />
-    <EmbeddedResource Include="Resources\user_group.png" />
-    <EmbeddedResource Include="Resources\user.png" />
-    <EmbeddedResource Include="Resources\unlock2.png" />
-    <EmbeddedResource Include="Resources\unlock.png" />
-    <EmbeddedResource Include="Resources\turntable.png" />
-    <EmbeddedResource Include="Resources\trashcan.png" />
-    <EmbeddedResource Include="Resources\text.png" />
-    <EmbeddedResource Include="Resources\terminal2.png" />
-    <EmbeddedResource Include="Resources\terminal.png" />
-    <EmbeddedResource Include="Resources\tag.png" />
-    <EmbeddedResource Include="Resources\tachometer.png" />
-    <EmbeddedResource Include="Resources\tablet.png" />
-    <EmbeddedResource Include="Resources\system_window.png" />
-    <EmbeddedResource Include="Resources\sticky_note.png" />
-    <EmbeddedResource Include="Resources\star2.png" />
+    <Resource Include="Resources\stock.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\star.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\sound_file.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\sign_info.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\sign_check.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\sign_add.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\shield.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\search%27.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\screwdriver_wrench.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\schedule.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\rss.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\red_movie.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\profile3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\profile.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\premiere.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\powerpoint.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\pin.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\pic_folder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\photoshop.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\pencil.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\pdf.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\paperclip2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\paperclip.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\notes.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\notepad.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\music_folder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\monitor.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\money.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\microphone.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\marker.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\map2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\map_marker.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\map.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\lp.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\lock2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\lock.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\link_file.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\like.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\life_buoy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\layout_window.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\land_marker.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\institution.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\indesign.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\image_pci.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\image_file.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\image.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\house_folder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\house.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\heart.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\headphone.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\group_profile.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\green_movie.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\green_folder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\google+.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\gift.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\gamepad.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\folder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\floppy_save.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\flask.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\filter.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\film_movie.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\filezip.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\facebook.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\exe_file.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\excel2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\excel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\error_sign.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\error_shield.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\enveloppe4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\enveloppe3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\enveloppe2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\enveloppe.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\empty.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\earch.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\drive2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\drive.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\doc_folder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\disc3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\disc.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\delete.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\database2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\database.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\cone.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\computer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\component.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\compas.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\cogs.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\cog.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\code_file.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\cloud_sync.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\cloud_down.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\cloud.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\clock2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\clock.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\chat3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\chat2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\chat.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\cat2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\cat.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\camera2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\camera0.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\camera.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\calendar3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\calendar2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\calendar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\bulb_light.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\bubbles.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\bubble.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\box_out.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\box_in.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\box_full.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\bookmark_file.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\book.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\blue_folder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\bizcard.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\beer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\bansign.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\bag.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\back_arrow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\ai.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\address_book3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\address_book2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\address_book.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\zip_file2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\zip_file.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\youtube.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\wrench2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\wrench.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\word_file.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\word.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\window2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\window.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\webcam.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\warning_shield.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\video_folder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\user2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\user_group.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\user.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\unlock2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\unlock.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\turntable.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\trashcan.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\text.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\terminal2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\terminal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\tag.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\tachometer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\tablet.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\system_window.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\sticky_note.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\star2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="stock.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
