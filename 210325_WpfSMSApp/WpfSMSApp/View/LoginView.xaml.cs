@@ -1,18 +1,9 @@
 ﻿using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace WpfSMSApp.View
 {
@@ -35,8 +26,10 @@ namespace WpfSMSApp.View
                                                      MessageDialogStyle.AffirmativeAndNegative, null);
 
             if (result == MessageDialogResult.Affirmative) // 메세지다이얼로그결과가 1이면
+            {
+                Commons.LOGGER.Info("프로그램 종로");
                 Application.Current.Shutdown();  // 완전 프로그램 종료
-
+            }
 
             // 메세지박스로 썼을때
             //var result = MessageBox.Show("종료하시겠습니까?", "종료", MessageBoxButton.OKCancel, MessageBoxImage.Question);
@@ -86,7 +79,7 @@ namespace WpfSMSApp.View
             {
                 // 예외 처리
                 Commons.LOGGER.Error($"예외발생 : {ex}");
-                await this.ShowMessageAsync("예외", "예외 발생 {ex}");
+                await this.ShowMessageAsync("예외", $"예외 발생 {ex}");
             }
         }
 
