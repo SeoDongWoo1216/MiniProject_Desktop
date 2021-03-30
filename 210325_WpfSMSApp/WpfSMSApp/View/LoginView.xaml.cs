@@ -2,6 +2,7 @@
 using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Windows;
 using System.Windows.Input;
 
@@ -22,8 +23,9 @@ namespace WpfSMSApp.View
         {
             // 메트로 마하앱을 쓰기위해 비동기 사용(메세지박스.Show 쓰려면 비동기안해도됨)
             // using MahApps.Metro.Controls.Dialogs; 추가해야함
-            var result = await this.ShowMessageAsync("종료", "프로그램을 종료하시겠습니까?",
-                                                     MessageDialogStyle.AffirmativeAndNegative, null);
+
+           var result = await this.ShowMessageAsync("종료", "프로그램을 종료하시겠습니까?",
+                                                    MessageDialogStyle.AffirmativeAndNegative, null);
 
             if (result == MessageDialogResult.Affirmative) // 메세지다이얼로그결과가 1이면
             {
@@ -31,10 +33,10 @@ namespace WpfSMSApp.View
                 Application.Current.Shutdown();  // 완전 프로그램 종료
             }
 
-            // 메세지박스로 썼을때
+            //메세지박스로 썼을때
             //var result = MessageBox.Show("종료하시겠습니까?", "종료", MessageBoxButton.OKCancel, MessageBoxImage.Question);
 
-            //if(result == MessageBoxResult.OK)
+            //if (result == MessageBoxResult.OK)
             //    Application.Current.Shutdown();  // 완전 프로그램 종료
         }
 
@@ -53,6 +55,10 @@ namespace WpfSMSApp.View
             {
                 var email = TxtUserEmail.Text;           // 여기다 브레이크포인트 걸고 디버그 ㄱㄱ
                 var password = TxtPassword.Password;
+
+                var mdHash = MD5.Create();
+                password = Commons.GetMd5Hash(mdHash, password);
+
                 var isOurUser = Logic.DataAccess.GetUser()
                     .Where(u => u.UserEmail.Equals(email) && u.UserPassword.Equals(password) 
                                 && u.UserActivated == true).Count();

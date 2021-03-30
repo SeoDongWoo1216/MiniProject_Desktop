@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,17 @@ namespace WpfSMSApp.Logic
 
             return users;
         }
-    }
 
+        // 데이터값의 입력, 수정을 동시에하는 메서드
+        // 키값이 있으면 UPDATE, 키값이 없으면 INSERT
+        
+        internal static int SetUser(User user)
+        {
+            using(var ctx = new SMSEntities())
+            {
+                ctx.User.AddOrUpdate(user);
+                return ctx.SaveChanges();   // 커밋(Commit) 역할하는 구문. (0 또는 1 이상의 값을 돌려줌)
+            }
+        }
+    }
 }

@@ -108,7 +108,7 @@
                     Grid.Column="5" 
                     Content="사용자" FontSize="16" 
                     Foreground="White" Background="LightSteelBlue" 
-                    Margin="5, 10">
+                    Margin="5, 10" Click="BtnUser_Click">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -150,8 +150,8 @@
             </Button>
         </Grid>
         
-        <Grid Background="WhiteSmoke">
-            <Frame x:Name="ActiveControl" />    <!--화면 전환-->
+        <Grid>
+            <Frame x:Name="ActiveControl" NavigationUIVisibility="Hidden" />    <!--화면 전환-->
         </Grid>
     </DockPanel>
 
