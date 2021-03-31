@@ -43,8 +43,6 @@ namespace WpfSMSApp
 
         }
 
-
-
         private void ShowLoginView()
         {
             LoginView view = new LoginView();
