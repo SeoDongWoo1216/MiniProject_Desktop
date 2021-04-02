@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Net;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace _210401_NaverMovieFinderApp
 {
@@ -52,6 +53,31 @@ namespace _210401_NaverMovieFinderApp
             }
 
             return result;
+        }
+
+
+        // 불러온 데이터에서 HTML 태그를 삭제해주는 메서드
+        public static string StripHtmlTag(string text)
+        {
+            return Regex.Replace(text, @"<(.|\n)*?>", "");  // HTML 태그 삭제하는 정규 표현식
+        }
+
+        public static string StripPipe(string text)
+        {
+            if (string.IsNullOrEmpty(text)) return "";   // 빈값이 있을때는 그대로 출력
+            else
+            {
+                return text.Substring(0, text.LastIndexOf("|")).Replace("|", ", ");  // 마지막 '|' 를 뺀다음에 '|'를 ', ' 로 바꿔줌  
+            }
+
+
+
+            if (string.IsNullOrEmpty(text))
+                return "";
+            return text.Replace("&amp;", "");
+
+            /*string result = text.Replace("|",", ");
+            return result.Substring(0, result.LastIndexOf(","));*/
         }
     }
 }
