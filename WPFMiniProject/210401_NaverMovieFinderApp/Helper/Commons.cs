@@ -15,9 +15,13 @@ namespace _210401_NaverMovieFinderApp
 {
     public class Commons
     {
+       
+        public static bool IsFavorite = false;  // 즐겨찾기 여부 플래그
 
+        public static bool IsDelete = false;    // 즐겨찾기 삭제와 보기 플래그
+
+        // NLog 정적 객체
         public static readonly Logger LOGGER = LogManager.GetCurrentClassLogger();
-
 
         public static async Task<MessageDialogResult> ShowMessageAsync(
             string title, string message, MessageDialogStyle style = MessageDialogStyle.Affirmative)
@@ -72,9 +76,9 @@ namespace _210401_NaverMovieFinderApp
 
 
 
-            if (string.IsNullOrEmpty(text))
-                return "";
-            return text.Replace("&amp;", "");
+            //if (string.IsNullOrEmpty(text))
+            //    return "";
+            //return text.Replace("&amp;", "");
 
             /*string result = text.Replace("|",", ");
             return result.Substring(0, result.LastIndexOf(","));*/
