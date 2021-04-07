@@ -104,7 +104,7 @@
 
             <DataGrid x:Name="GrdData"
                       AutoGenerateColumns="False" SelectionUnit="FullRow"
-                      GridLinesVisibility="Vertical" 
+                      GridLinesVisibility="Vertical" IsReadOnly="True" 
                       Style="{StaticResource MahApps.Styles.DataGrid.Azure}" 
                       ItemsSource="{Binding}">   <!-- AutoGenerateColumns=false로 자동으로 컬럼을 만들지않음, ItemsSource 바인딩으로 DB에서 데이터 불러옴 -->
                 <DataGrid.Columns>

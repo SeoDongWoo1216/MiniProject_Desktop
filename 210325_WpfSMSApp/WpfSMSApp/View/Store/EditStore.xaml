@@ -1,5 +1,5 @@
 ﻿<Page
-      x:Class="WpfSMSApp.View.Store.AddStore"
+      x:Class="WpfSMSApp.View.Store.EditStore"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,7 +7,7 @@
       xmlns:local="clr-namespace:WpfSMSApp.View.User"
       mc:Ignorable="d" 
       d:DesignHeight="630" d:DesignWidth="1200"
-      Title="AddStore" Loaded="Page_Loaded">
+      Title="EditStore" Loaded="Page_Loaded">
 
     <Page.Resources> <!-- 리소스기능으로 일일이 설정해줄것을 여기서수정하면 한꺼번에 수정가능하다. -->
         <Style TargetType="Label"> <!-- {x:type Label}-->
@@ -37,7 +37,7 @@
         </Grid.ColumnDefinitions>
 
         <!--제목입력 시작-->
-        <Label Grid.Row="0" Grid.Column="1" Content="창고 정보 입력" 
+        <Label Grid.Row="0" Grid.Column="1" Content="창고 정보 수정" 
                FontSize="26" FontWeight="ExtraBold" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" />
         <!--제목입력 끝-->
         
@@ -94,7 +94,7 @@
                     Orientation="Horizontal" HorizontalAlignment="Right" >
             <Button x:Name="BtnAdd" 
                     Height="50" Width="120" FontSize="14" 
-                    Content="입력" Background="CornflowerBlue" Margin="10, 0" Click="BtnAdd_Click">
+                    Content="수정" Background="CornflowerBlue" Margin="10, 0" Click="BtnAdd_Click">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">

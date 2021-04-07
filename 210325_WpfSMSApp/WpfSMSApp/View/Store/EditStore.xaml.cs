@@ -12,11 +12,21 @@ namespace WpfSMSApp.View.Store
     /// <summary>
     /// MyAccount.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class AddStore : Page
+    public partial class EditStore : Page
     {
-        public AddStore()
+
+        private int StoreID { get; set; }  // 생성자 선언
+        private Model.Store CurrentStore { get; set; }
+
+        public EditStore()
         {
             InitializeComponent();
+        }
+
+        // 추가생성자. StoreList에서 storeId를 받아옴
+        public EditStore(int storeId) : this()  
+        {
+            StoreID = storeId;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -24,6 +34,23 @@ namespace WpfSMSApp.View.Store
             // 모든 라벨을 숨김
             LblStoreName.Visibility = LblStoreLocation.Visibility = Visibility.Hidden;
             TxtStoreID.Text = TxtStoreName.Text = TxtStoreLocation.Text ="";
+
+            try
+            {
+                // Store 테이블에서 내용 읽음
+
+                CurrentStore = Logic.DataAccess.GetStores().Where(s => s.StoreID.Equals(StoreID)).FirstOrDefault();
+                // 하나의 값이 들어오거나 null값이 들어옴
+
+                TxtStoreID.Text = CurrentStore.StoreID.ToString();
+                TxtStoreName.Text = CurrentStore.StoreName;
+                TxtStoreLocation.Text = CurrentStore.StoreLocation;
+            }
+            catch (Exception ex)
+            {
+                Commons.LOGGER.Error($"EditStore.cs Page_Loaded 예외 발생 : {ex}");
+                Commons.ShowMessageAsync("예외", $"예외발생 : {ex}");
+            }
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
@@ -78,7 +105,6 @@ namespace WpfSMSApp.View.Store
             // 모든 라벨을 숨김
             LblStoreName.Visibility = LblStoreLocation.Visibility = Visibility.Hidden;
 
-            var store = new Model.Store();  // 새롭게 사용자(데이터)가 INSERT되기위해 객체 생성
 
             IsValid = IsValidInput();     // 컴포넌트들을 제대로 입력했는지 확인(유효성 체크, 개발자에게 제일 중요함!)
 
@@ -87,12 +113,12 @@ namespace WpfSMSApp.View.Store
             if (IsValid)
             {
                 // 컴포넌트에 값이 잘 입력됬으면 입력된 값으로 DB 데이터 수정
-                store.StoreName = TxtStoreName.Text;
-                store.StoreLocation = TxtStoreLocation.Text;
+                CurrentStore.StoreName = TxtStoreName.Text;
+                CurrentStore.StoreLocation = TxtStoreLocation.Text;
 
                 try
                 {
-                    var result = Logic.DataAccess.SetStore(store);     //Logic.DataAccess.SetUser(user);
+                    var result = Logic.DataAccess.SetStore(CurrentStore);     //Logic.DataAccess.SetUser(user);
                     if (result == 0)
                     {
                         // 사용자 데이터 입력 안됨(비정상적 작동)
