@@ -8,9 +8,6 @@
 4. '예고편 보기' 버튼을 통해 새로운 창이 열리면서 유튜브에 기재된 예고편 영상을 볼 수 있습니다.(Youtube API와 연동하여 영상 출력) 
 
 
-
-### 실행화면
-
 ![즐겨찾기](https://github.com/SeoDongWoo1216/MiniProject_Desktop/blob/main/WPFMiniProject/210401_NaverMovieFinderApp/result_Image/210401_NaverMovieFinderApp_result_001.gif "즐겨찾기 이벤트(인셉션검색으로 시작)")
 ![예고편보기](https://github.com/SeoDongWoo1216/MiniProject_Desktop/blob/main/WPFMiniProject/210401_NaverMovieFinderApp/result_Image/210401_NaverMovieFinderApp_result_002.gif "예고편(예고편보기 버튼으로 시작)")
 
