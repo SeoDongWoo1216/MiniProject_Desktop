@@ -10,4 +10,4 @@
 ![즐겨찾기](https://github.com/SeoDongWoo1216/MiniProject_Desktop/blob/main/WPFMiniProject/210401_NaverMovieFinderApp/result_Image/210401_NaverMovieFinderApp_result_001.gif "즐겨찾기 이벤트(인셉션검색으로 시작)")
 ![예고편보기](https://github.com/SeoDongWoo1216/MiniProject_Desktop/blob/main/WPFMiniProject/210401_NaverMovieFinderApp/result_Image/210401_NaverMovieFinderApp_result_002.gif "예고편(예고편보기 버튼으로 시작)")
 
-![소스분석](https://github.com/SeoDongWoo1216/MiniProject_Desktop/tree/main/WPFMiniProject/210401_NaverMovieFinderApp)
+[소스분석](https://github.com/SeoDongWoo1216/MiniProject_Desktop/tree/main/WPFMiniProject/210401_NaverMovieFinderApp)
