@@ -1,11 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleNaverMovieFinder
 {
@@ -15,7 +11,11 @@ namespace ConsoleNaverMovieFinder
         {
             string ClientID = "U5xL8wYH5Evo2TMHUB23";
             string clientSeret = "gy9PKhYriJ";
-            string search = "starwars"; // 변경 가능
+
+
+            string search = "starwars"; // 검색할 단어
+
+
             string openApiUrl = $"https://openapi.naver.com/v1/search/movie?query={search}";
 
             var responseJson = GetOpenApiResult(openApiUrl, ClientID, clientSeret);
