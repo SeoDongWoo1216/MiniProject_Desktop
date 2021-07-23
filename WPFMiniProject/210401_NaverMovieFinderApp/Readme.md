@@ -167,34 +167,36 @@ foreach (NaverFavoriteMovies item in GrdData.SelectedItems)
 ```C#
 /* Youtube API */
 
-var youtubeService = new YouTubeService(
-    new BaseClientService.Initializer()
-    {
-        ApiKey = "개인키",
-        ApplicationName = this.GetType().ToString()
-    });
-
-var request = youtubeService.Search.List("snippet");    // snippet 조각
-request.Q = LblMovieName.Content.ToString();   // {영화이름} 예고편
-request.MaxResults = 10; // 사이즈가 크면 멈춰버림
-
-var response = await request.ExecuteAsync(); // 검색시작(youtube OpenAPI 호출)
-
-foreach (var item in response.Items)
+private async Task LoadDataCollection()
 {
-    if (item.Id.Kind.Equals("youtube#video"))
-    {
-        YoutubeItem youtube = new YoutubeItem()
-        {
-            Title = item.Snippet.Title,
-            Author = item.Snippet.ChannelTitle,
-            URL = $"https://www.youtube.com/watch?v={item.Id.VideoId}"
-        };
-        // thumbnail image
-        youtube.Thumbnail = new BitmapImage(new Uri(item.Snippet.Thumbnails.Default__.Url, UriKind.RelativeOrAbsolute));
-    
-        youtubes.Add(youtube);
-    }
+            var youtubeService = new YouTubeService(new BaseClientService.Initializer()
+            {
+                 ApiKey = "AIzaSyB9qpfmZ9Ok_QTdnFIIteOW2_nyJnwBcDI",
+                 ApplicationName = this.GetType().ToString()
+            });
+
+            var request = youtubeService.Search.List("snippet"); 
+            request.Q = LblMovieName.Content.ToString();   // 쿼리의 Q, {영화이름} 예고편
+            request.MaxResults = 10;   // 사이즈가 크면 멈춰버림.
+
+            var response = await request.ExecuteAsync(); // 검색 시작(youtube OpenAPI 호출)
+
+            foreach (var item in response.Items)
+            {
+                if (item.Id.Kind.Equals("youtube#video"))
+                {
+                    YoutubeItem youtube = new YoutubeItem()
+                    {
+                        Title = item.Snippet.Title,
+                        Author = item.Snippet.ChannelTitle,
+                        URL = $"http://www.youtube.com/watch?v={item.Id.VideoId}"
+                    };
+
+                    // 썸네일 이미지
+                    youtube.Thumbnail = new BitmapImage(new Uri(item.Snippet.Thumbnails.Default__.Url, UriKind.RelativeOrAbsolute));
+                    youtubes.Add(youtube);
+                }
+            }
 }
 ```
 <br><br>
@@ -202,9 +204,8 @@ foreach (var item in response.Items)
 --------------
 
 ## Commons.cs
-
 * <h3> OpenAPI Request & Response 메소드 </h3>
-
+- Http 요청을위해 HttpWebRequest 객체를 만들고 HttpWebResponses로 받은 뒤, Stream을 열어 StreamReader로 값을 읽어줌
 ```C#
 public static string GetOpenApiResult(string openApiUrl, string clientID, string clientSecret)
 {
@@ -234,39 +235,23 @@ public static string GetOpenApiResult(string openApiUrl, string clientID, string
 }
 ```
 
-* <h3> 비밀번호 암호화 메소드 </h3>
+--------------
 
+## HTML 데이터 Parsing
+- 네이버 영화 API형태로 데이터를 받아오면 Json 형식으로 받아오는데, 데이터가 날 것 그대로 받아와서 그리드에 출력하면 
 ```C#
-public static string GetMd5Hash(MD5 md5Hash, string plainStr)
+public static string StripHtmlTag(string text)
 {
-    byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(plainStr));
-    StringBuilder builder = new StringBuilder();
-    for (int i = 0; i < data.Length; i++)
+    return Regex.Replace(text, @"<(.|\n)*?>", "");  // HTML 태그 삭제하는 정규 표현식
+}
+
+public static string StripPipe(string text)
+{
+    if (string.IsNullOrEmpty(text)) return "";   // 빈값이 있을때는 그대로 출력
+    else
     {
-        builder.Append(data[i].ToString("x2")); // 16진수로 바꿈
+       return text.Substring(0, text.LastIndexOf("|")).Replace("|", ", ");  // 마지막 '|' 를 뺀다음에 '|'를 ', ' 로 바꿔줌  
     }
-
-    return builder.ToString();
-}
-```
-
-* <h3> 이메일 정규식 체크 메소드 </h3>
-
-```C#
-public static bool IsValidEmail(string email)
-{
-    return Regex.IsMatch(email, @"[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?");
-}
-```
-
-* <h3> HTML 태그 삭제 정규식 메소드 </h3>
-
-```C#
-public static string StripHTMLTag(string text)
-{
-    text = Regex.Replace(text, @"<(.|\n)*?>", "");  // HTML 태그
-    text = Regex.Replace(text, "&amp;", "&");       // &amp;
-    return text;
 }
 ```
 -->
