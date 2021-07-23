@@ -199,6 +199,7 @@ private async Task LoadDataCollection()
             }
 }
 ```
+
 <br><br>
 
 --------------
@@ -235,26 +236,29 @@ public static string GetOpenApiResult(string openApiUrl, string clientID, string
 }
 ```
 
+<br><br>
+
 --------------
 
 ## HTML 데이터 Parsing
-- 네이버 영화 API형태로 데이터를 받아오면 Json 형식으로 받아오는데, 데이터가 날 것 그대로 받아와서 그리드에 출력하면 해당 이미지처럼 출력된다.
-
+- 영화 데이터를 받을때 Json 형식으로 받아오는데, 데이터가 러프한 상태로 받아와서 그리드에 출력하면 해당 이미지처럼 출력된다.
 <p align = "center">
  <img src = "https://github.com/SeoDongWoo1216/MiniProject_Desktop/blob/main/WPFMiniProject/210401_NaverMovieFinderApp/result_Image/Movie_HtmlParsing01.png" >
 </p>
+
 <p align = "center">
- 
+ 따라서 불필요한 데이터를 걸러주는 파싱작업이 필요하다. 이때 아래 메서드들을 추가하면된다
 </p>
 
+<br>
 
 ```C#
 // 불러온 데이터에서 HTML 태그를 삭제해주는 메서드
 public static string StripHtmlTag(string text)
 {
-            //text = Regex.Replace(text, @"<(.|\n)*?>", "");  // HTML 태그 삭제하는 정규 표현식
-            //text = Regex.Replace(text, "&amp;", "&");       // &amp;
-            return text;
+     text = Regex.Replace(text, @"<(.|\n)*?>", "");  // HTML 태그 삭제하는 정규 표현식
+     text = Regex.Replace(text, "&amp;", "&");       // &amp;
+     return text;
 }
 
 public static string StripPipe(string text)
@@ -265,12 +269,13 @@ public static string StripPipe(string text)
           return text.Substring(0, text.LastIndexOf("|")).Replace("|", ", ");  // 마지막 '|' 를 뺀다음에 '|'를 ', ' 로 바꿔줌  
      }
 }
-
-public static string Stripamp(string text)
-{
-     if (string.IsNullOrEmpty(text))  return "";
-     
-     return text.Replace("&amp;", "");
-}
 ```
+<p align = "center">
+ <img src = "https://github.com/SeoDongWoo1216/MiniProject_Desktop/blob/main/WPFMiniProject/210401_NaverMovieFinderApp/result_Image/Movie_HtmlParsing02.png" >
+</p>
 
+<p align = "center">
+깔끔하게 데이터가 파싱되어서 출력된 실행화면
+</p>
+
+-----------------
