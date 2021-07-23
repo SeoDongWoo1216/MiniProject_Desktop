@@ -75,13 +75,20 @@
 '인셉션'을 검색창에 입력하고, 검색 버튼을 클릭하거나 엔터를 눌렀을시 그리드에 출력된다 <br><br>
 </p>
 
-영화를 검색창에 입력했을때 ProcSearchNaverAPI('인셉션') 을 통해 Naver API에 접근하게된다. <br> <br>
+영화를 검색창에 입력했을때 ProcSearchNaverAPI('인셉션'); 메서드를 통해 Naver API에 접근하게된다. 
 
+<br> <br>
 -------------------------------------
     
 ### DB와 연동하여 즐겨찾기 기능으로 CRUD 구현
 - Entity Framework를 활용하여 쿼리를 직접 입력할 필요없이 Select, Update, Insert, Delete가 가능하다.
 - BtnAddWatchList_Click, BtnViewWatchList_Click, BtnDelete_Click 버튼 클릭 이벤트로 구현
+<p align = "center" >
+    <img src = "https://github.com/SeoDongWoo1216/MiniProject_Desktop/blob/main/WPFMiniProject/210401_NaverMovieFinderApp/result_Image/Movie_Insert_Select.png">
+</p>
+<p align = "center" >
+    즐겨찾기 추가, 보기, 삭제 버튼으로 CRUD 구현(화면은 즐겨찾기 보기 이벤트)
+</p>
 
 ```C#
 // Insert
@@ -142,7 +149,7 @@ foreach (NaverFavoriteMovies item in GrdData.SelectedItems)
 }
 ```
 
-<br><br><br>
+<br><br>
 
 
 ----------------
@@ -190,8 +197,8 @@ foreach (var item in response.Items)
     }
 }
 ```
+<br><br>
 
-<!-- 
 --------------
 
 ## Commons.cs
