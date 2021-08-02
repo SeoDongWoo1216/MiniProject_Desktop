@@ -202,7 +202,7 @@ private void BtnUpdate_Click(object sender, RoutedEventArgs e)
   <img src = "https://github.com/SeoDongWoo1216/MiniProject_Desktop/blob/main/210325_WpfSMSApp/WpfSMSApp/result_image/ERP_User%EC%8B%A4%ED%96%89%ED%99%94%EB%A9%B4.gif" >
 </p>
 
-
+##### - 추가, 수정, 비활성화 유효성 검사와 DB는 계정관리와 동일
 ##### - PDF 익스포트 처리
 ```C#
 using iTextSharp.text;
@@ -307,6 +307,7 @@ private void BtnExportPdf_Click(object sender, RoutedEventArgs e)
   <img src = "https://github.com/SeoDongWoo1216/MiniProject_Desktop/blob/main/210325_WpfSMSApp/WpfSMSApp/result_image/ERP_Store%EC%8B%A4%ED%96%89%ED%99%94%EB%A9%B4.gif" width = "83%" height ="83%"  >
 </p>
 
+##### - 추가, 수정 유효성 검사와 DB는 계정관리와 동일
 ##### - Excel 익스포트 
 ```C#
 using NPOI.SS.UserModel;
